@@ -1,0 +1,4 @@
+﻿loadfile build/xg24_hello.hex
+r
+g
+exit
