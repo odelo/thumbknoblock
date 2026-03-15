@@ -1,0 +1,59 @@
+/*********************************************************************
+*                                                                     *
+*       SEGGER Ozone Project File                                     *
+*       Target : EFR32MG24B210F1536IM48                              *
+*       Board  : Silicon Labs xG24 Explorer Kit (BRD2703A)           *
+*                                                                     *
+*       Interface : SWD (on-board J-Link)                            *
+*                                                                     *
+***********************************************************************/
+
+/*********************************************************************
+*
+*       Project Settings
+*
+***********************************************************************/
+
+Project.SetDevice("EFR32MG24B210F1536IM48");
+Project.SetHostIF("USB", "");
+Project.SetTargetIF("SWD");
+Project.SetTIFSpeed("4 MHz");
+Project.AddSvdFile("gecko_sdk/platform/Device/SiliconLabs/EFR32MG24/SVD/EFR32MG24B210F1536IM48.svd");
+
+/*********************************************************************
+*
+*       Executable
+*
+***********************************************************************/
+
+File.Open("build/xg24_hello.elf");
+
+/*********************************************************************
+*
+*       Source Path
+*
+***********************************************************************/
+
+Path.Set("RootPath", "$(ProjectDir)");
+Path.Add("SourcePath", "$(RootPath)/src");
+Path.Add("SourcePath", "$(RootPath)/drivers");
+Path.Add("SourcePath", "$(RootPath)/hal");
+Path.Add("SourcePath", "$(RootPath)/bsp");
+Path.Add("SourcePath", "$(RootPath)/startup");
+
+/*********************************************************************
+*
+*       Debug Settings
+*
+***********************************************************************/
+
+Debug.SetStepIntoNewTasks(1);
+Debug.SetStopAfterReset(1);
+
+/*********************************************************************
+*
+*       Flash Download Settings
+*
+***********************************************************************/
+
+Util.SetFlashDL("JLINK", "EFR32MG24B210F1536IM48", "$(ProjectDir)/build/xg24_hello.elf");
