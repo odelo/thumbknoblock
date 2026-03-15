@@ -11,7 +11,7 @@ set(CMAKE_CXX_EXTENSIONS OFF)
 
 include(cmake/efr32mg24.cmake)
 
-set(GECKO_SDK ${CMAKE_SOURCE_DIR}/gecko_sdk)
+set(GECKO_SDK ${CMAKE_SOURCE_DIR}/submodules/gecko_sdk)
 
 set(EMLIB_SRC
     ${GECKO_SDK}/platform/emlib/src/em_cmu.c
@@ -61,8 +61,8 @@ set(LINK_FLAGS
     -T${LINKER_SCRIPT}
     -Wl,--gc-sections
     -Wl,-Map=${CMAKE_BINARY_DIR}/xg24_hello.map
-    -specs=nosys.specs
     -specs=nano.specs
+    -lnosys
 )
 
 string(REPLACE ";" " " LINK_FLAGS_STR "${LINK_FLAGS}")
