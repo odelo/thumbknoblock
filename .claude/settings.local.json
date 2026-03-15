@@ -8,7 +8,14 @@
       "Bash(cmake -B build -G Ninja)",
       "Bash(cmake --build build)",
       "Bash(find /Users/colin/Documents/thumbknoblock -type f \\\\\\(-name *.h -o -name *.hpp \\\\\\) ! -path */submodules/* ! -path */build/*)",
-      "Bash(git add:*)"
+      "Bash(git add:*)",
+      "Bash(arm-none-eabi-objdump -s --section=.init_array /Users/colin/Documents/thumbknoblock/build/xg24_hello.elf)",
+      "Bash(arm-none-eabi-nm /Users/colin/Documents/thumbknoblock/build/xg24_hello.elf)",
+      "Bash(arm-none-eabi-objdump -d /Users/colin/Documents/thumbknoblock/build/xg24_hello.elf)",
+      "Bash(npm run lint)",
+      "Bash(npm run test:*)",
+      "Read(~/.zshrc)", 
+      "git*",
     ]
   }
 }
