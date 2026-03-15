@@ -36,6 +36,7 @@ set(APP_SRC
     hal/hal_gpio.cpp
     hal/hal_uart.cpp
     bsp/bsp_init.cpp
+    bsp/board_pins.cpp
 )
 
 set(INCLUDE_DIRS

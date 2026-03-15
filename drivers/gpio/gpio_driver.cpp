@@ -7,8 +7,17 @@
 
 GpioDriver::GpioDriver(uint8_t port, uint8_t pin, GpioMode mode)
     : port_(port), pin_(pin) {
-  if (mode == GpioMode::Output || mode == GpioMode::PushPull) {
-    hal_gpio_init_output(port_, pin_);
+  switch (mode) {
+    case GpioMode::Output:
+    case GpioMode::PushPull:
+      hal_gpio_init_output(port_, pin_);
+      break;
+    case GpioMode::Input:
+      hal_gpio_init_input(port_, pin_);
+      break;
+    case GpioMode::InputPull:
+      hal_gpio_init_input_pull(port_, pin_, /*pull_up=*/true);
+      break;
   }
 }
 
@@ -21,5 +30,5 @@ void GpioDriver::toggle() {
 }
 
 bool GpioDriver::read() const {
-  return false;
+  return hal_gpio_read(port_, pin_);
 }
