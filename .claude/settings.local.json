@@ -1,0 +1,14 @@
+{
+  "permissions": {
+    "allow": [
+      "Read(//Applications/ARM/bin/**)",
+      "Read(//usr/local/bin/**)",
+      "Bash(brew list:*)",
+      "Bash(mdfind -name arm-none-eabi-gcc)",
+      "Bash(cmake -B build -G Ninja)",
+      "Bash(cmake --build build)",
+      "Bash(find /Users/colin/Documents/thumbknoblock -type f \\\\\\(-name *.h -o -name *.hpp \\\\\\) ! -path */submodules/* ! -path */build/*)",
+      "Bash(git add:*)"
+    ]
+  }
+}
